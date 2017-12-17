@@ -11,44 +11,36 @@ print('=-'*30)
 print('>>> SIMPLE POLISH NOTATION CALCULATOR <<<')
 print('=-'*30)
 
-while True:
-    print('>>> MENU <<<')
-    print('''
-        1. Type number
-        2. Stack up
-        3. Add
-        4. Subtract
-        5. Multiply
-        6. Divide
-        7. Unstack
-        8. Clear
-        9. Quit
-    ''')
+a = x = 0          # initalize stack and value
+stacked = False    # initialize stack flag
 
-    a = 0             # accumulator
-    x = 0             # number
-    stacked = False   # no value stacked up
+while True:
+    print('[T]ype number | Stac[K] up | [A]dd | [S]ubtract | [M]ultiply | [D]ivide | [U]nstack | [C]lear | [Q]uit')
 
     opt = input('Option: ').strip().upper()
-    while opt not in '123456789':
+    while opt not in 'TKASMDUCQ':
         opt = input('Option:').strip().upper()
 
-    if opt == '1':
+    if opt == 'T':
         x = float(input('x = '))
         print('-'*30)
         print('Value inserted!')
         print('-'*30)
 
-    if opt == '2':
+    if opt == 'K':
+        print(f'stacked = {stacked}')
         if stacked == True:
             print('A value is already stacked!')
         else:
             a = x
+            stacked = True
+            print(f'stacked = {stacked}')
             print('-'*30)
             print('Value stacked')
             print('-'*30)
 
-    if opt == '3':
+    if opt == 'A':
+        print(f'Stacked = {stacked}')
         if stacked == False:
             print('Stack up a value first@')
         else:
@@ -57,7 +49,7 @@ while True:
             print(f'Addiction: result {a}')
             print('-'*30)
 
-    if opt == '4':
+    if opt == 'S':
         if stacked == False:
             print('Stack up a value first@')
         else:
@@ -66,7 +58,7 @@ while True:
             print(f'Subtraction: result {a}')
             print('-'*30)
         
-    if opt == '5':
+    if opt == 'M':
         if stacked == False:
             print('Stack up a value first@')
         else:
@@ -75,7 +67,7 @@ while True:
             print(f'Multiplying: resilt {x}')
             print('-'*30)
 
-    if opt == '6':
+    if opt == 'D':
         if stacked == False:
             print('Stack up a value first@')
         else:
@@ -83,7 +75,7 @@ while True:
             print('-'*30)
             print(f'Division: result {x}')
 
-    if opt == '7':
+    if opt == 'U':
         if stacked == False:
             print('Stack up a value first@')
         else:
@@ -92,11 +84,11 @@ while True:
             print('Value unstacked')
             print('-'*30)
 
-    if opt == '8':
+    if opt == 'C':
         a = x = 0
         print('Cleaned: a = 0 and x = 0')
 
-    if opt == '9':
+    if opt == 'Q':
         break
 
 print('=-'*30)
